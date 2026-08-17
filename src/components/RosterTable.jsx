@@ -13,6 +13,9 @@ function RosterTable({ roster, selectedIds, onToggle }) {
 
       <div className="table-scroll">
         <table>
+          <caption className="visually-hidden">
+            Fixed player roster and squad selection
+          </caption>
           <thead>
             <tr>
               <th scope="col">Select</th>

@@ -1,7 +1,10 @@
 function ValidationPanel({ isVisible, status, violations }) {
   if (!isVisible) {
     return (
-      <section className="panel verdict-panel verdict-pending" aria-labelledby="verdict-title">
+      <section
+        className="panel verdict-panel verdict-pending"
+        aria-labelledby="verdict-title"
+      >
         <p className="panel-kicker">Explicit result</p>
         <h2 id="verdict-title">Ready to validate</h2>
         <p>
@@ -19,13 +22,14 @@ function ValidationPanel({ isVisible, status, violations }) {
       className={`panel verdict-panel ${isValid ? 'verdict-valid' : 'verdict-invalid'}`}
       aria-labelledby="verdict-title"
       aria-live="polite"
+      role="status"
     >
       <p className="panel-kicker">Validation result</p>
       <h2 id="verdict-title">{status}</h2>
       {isValid ? (
         <p>All squad rules are satisfied.</p>
       ) : (
-        <ol className="violation-list">
+        <ol className="violation-list" aria-label="Squad violations">
           {violations.map((violation) => (
             <li key={violation}>{violation}</li>
           ))}
